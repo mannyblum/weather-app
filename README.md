@@ -1,10 +1,3 @@
-<style>
-  ul {
-    list-style-type: none;
-    margin-left: 8px;
-}
-</style>
-
 # Weather App
 
 ## About this project

@@ -1,69 +1,78 @@
-# React + TypeScript + Vite
+<style>
+  ul {
+    list-style-type: none;
+    margin-left: 8px;
+}
+</style>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Weather App
 
-Currently, two official plugins are available:
+## About this project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I queried some generative AI and asked it to provide me with checklist to achieve an MVP. This is what it gave me. Eventual goal is to have completed all of these items.
 
-## Expanding the ESLint configuration
+✅ 1. Core Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- [ ] Search
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+  - [x] Input field for searching weather by city name
+  - [x] Submit button or search-on-type (with debounce)
+  - [x] Show validation or error for invalid city input
+  - [ ] Optional: Use current geolocation for weather
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- [x] Current Weather Display
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  - [x] City name and country
+  - [x] Temperature (Celsius and/or Fahrenheit)
+  - [x] Weather description (e.g. “light rain”)
+  - [x] Weather icon (from API)
+  - [x] Feels like temperature
+  - [x] Humidity
+  - [x] Wind speed
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- [ ] API Integration
+  - [x] Use a weather API (e.g. OpenWeatherMap)
+  - [x] Handle loading state
+  - [ ] Handle error state (e.g. "City not found")
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+⚙️ 2. State & Data Management
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- [ ] Store:
+  - [x] Search query
+  - [x] Weather data response
+  - [ ] Loading/error states
+- [x] Use React's useState, useEffect
+- [x] Optional: useContext or useReducer for more complex data flows
+
+🎨 3. UI/UX
+
+- [ ] Responsive design (mobile-first layout)
+- [ ] Clean and modern UI
+- [x] Weather icons match condition (e.g. sun, rain, snow)
+- [ ] Dynamic background or styling based on weather (optional)
+- [ ] Temperature toggle (°C / °F)
+
+🧪 4. Optional Features to Elevate the App
+
+- [x] Forecast
+
+  - [x] 5-day or 7-day forecast
+  - [ ] Show daily high/low temps and weather icons
+
+- [ ] Location Detection
+
+  - [ ] Use browser geolocation to show weather for current location
+
+- [ ] Search History
+
+  - [ ] Show recent searches
+  - [ ] Allow users to click a past search to load its weather
+
+- [ ] Theme Toggle
+
+  - [ ] Light/dark mode toggle
+
+- [ ] Error Handling & Edge Case
+  - [ ] No internet / API down
+  - [ ] Empty input
+  - [ ] Nonexistent cities

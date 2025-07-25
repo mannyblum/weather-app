@@ -36,6 +36,25 @@ const WeatherAppWrapper = styled.div`
   width: 500px;
   margin: 0px auto;
   height: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  border: 0 solid;
+  text-align: left;
+
+  font-family:
+    "Archivo Narrow", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  & h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 const LoadingIcon = styled.div`
@@ -60,6 +79,7 @@ const startMessage = css`
 
   & > p {
     margin-bottom: 0;
+    margin-top: 0;
   }
 `;
 

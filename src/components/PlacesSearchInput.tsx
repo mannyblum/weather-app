@@ -59,6 +59,11 @@ const Results = styled.div`
   left: 0;
   right: 0;
   ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+
     li {
       padding: 8px;
       border-bottom: 2px solid #333;

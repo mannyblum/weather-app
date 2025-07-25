@@ -20,9 +20,11 @@ persistQueryClient({
 });
 
 export default function Weather() {
-  <QueryClientProvider client={queryClient}>
-    <WeatherProvider>
-      <WeatherApp />
-    </WeatherProvider>
-  </QueryClientProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <WeatherProvider>
+        <WeatherApp />
+      </WeatherProvider>
+    </QueryClientProvider>
+  );
 }

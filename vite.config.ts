@@ -19,4 +19,16 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    outDir: "dist",
+    lib: {
+      entry: path.resolve(__dirname, "src/index.tsx"),
+      name: "Weather",
+      fileName: () => "weather.js",
+      formats: ["es"],
+    },
+    rollupOptions: {
+      external: ["react", "react-dom"],
+    },
+  },
 });

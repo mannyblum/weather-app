@@ -23,7 +23,12 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
-    "jsxImportSource": "@emotion/react"
+    "jsxImportSource": "@emotion/react",
+
+    "baseUrl": ".",
+    "paths": {
+      "triviaquiz": ["../weather/src"] // or whatever path your submodule lives at
+    }
   },
   "include": ["src"]
 }

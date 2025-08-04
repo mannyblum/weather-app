@@ -33,16 +33,16 @@ const spin = keyframes`
 const WeatherAppWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 100%;
   margin: 0px auto;
   height: 100%;
   box-sizing: border-box;
   padding: 0;
   border: 0 solid;
   text-align: left;
+  background-color: #f4f6f8;
 
-  font-family:
-    "Archivo Narrow", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Archivo Narrow", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -54,6 +54,11 @@ const WeatherAppWrapper = styled.div`
   h6 {
     margin: 0;
     padding: 0;
+  }
+
+  & > div {
+    width: 500px;
+    margin: 0px auto;
   }
 `;
 
@@ -72,6 +77,7 @@ const LoadingIcon = styled.div`
 `;
 
 const startMessage = css`
+  background-color: white;
   border: 2px solid black;
   border-radius: 4px;
   margin: 12px 24px;
@@ -86,13 +92,13 @@ const startMessage = css`
 const weatherApiKey = import.meta.env.VITE_OWM_API_KEY;
 
 const fetchWeather = async (
-  location: google.maps.LatLng,
+  location: google.maps.LatLng
 ): Promise<CurrentWeatherResponse> => {
   const { lat, lng } = location as google.maps.LatLng;
   await new Promise((resolve) => setTimeout(resolve, 500));
 
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=${units}&appid=${weatherApiKey}`,
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=${units}&appid=${weatherApiKey}`
   );
 
   if (!response.ok) {
@@ -106,13 +112,13 @@ const fetchWeather = async (
 };
 
 const featchForecast = async (
-  location: google.maps.LatLng,
+  location: google.maps.LatLng
 ): Promise<ForecastResponse> => {
   const { lat, lng } = location as google.maps.LatLng;
   await new Promise((resolve) => setTimeout(resolve, 500));
 
   const response = await fetch(
-    ` https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lng}&cnt=${count}&units=${units}&appid=${weatherApiKey}`,
+    ` https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lng}&cnt=${count}&units=${units}&appid=${weatherApiKey}`
   );
 
   if (!response.ok) {
@@ -226,22 +232,24 @@ export default function WeatherApp() {
       apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
     >
       <WeatherAppWrapper>
-        <PlacesSearchInput onPlaceSelect={handlePlaceSelect} />
-        {!isEmpty(weatherState.currentWeather) &&
-        weatherState.currentWeather !== null ? (
-          <CurrentWeatherCard
-            weather={weatherState.currentWeather}
-            locationName={locationName}
-          />
-        ) : (
-          <div css={startMessage}>
-            <p>Please use the search above to fetch weather data.</p>
-          </div>
-        )}
-        {weatherState.forecastWeather !== null &&
-          weatherState.forecastWeather !== undefined && (
-            <ForecastWeatherCard forecast={weatherState.forecastWeather} />
+        <div>
+          <PlacesSearchInput onPlaceSelect={handlePlaceSelect} />
+          {!isEmpty(weatherState.currentWeather) &&
+          weatherState.currentWeather !== null ? (
+            <CurrentWeatherCard
+              weather={weatherState.currentWeather}
+              locationName={locationName}
+            />
+          ) : (
+            <div css={startMessage}>
+              <p>Please use the search above to fetch weather data.</p>
+            </div>
           )}
+          {weatherState.forecastWeather !== null &&
+            weatherState.forecastWeather !== undefined && (
+              <ForecastWeatherCard forecast={weatherState.forecastWeather} />
+            )}
+        </div>
       </WeatherAppWrapper>
     </APIProvider>
   );

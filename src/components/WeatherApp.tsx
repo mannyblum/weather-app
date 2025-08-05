@@ -35,7 +35,7 @@ const WeatherAppWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   margin: 0px auto;
-  height: 100%;
+  height: 100vh;
   box-sizing: border-box;
   padding: 0;
   border: 0 solid;
@@ -58,6 +58,8 @@ const WeatherAppWrapper = styled.div`
 
   & > div {
     width: 500px;
+    min-height: 200;
+    height: 400px;
     margin: 0px auto;
   }
 `;

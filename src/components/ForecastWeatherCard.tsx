@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import type { ForecastDay, ForecastResponse } from "../types/Weather";
 import { css } from "@emotion/react";
 import { isEmpty } from "lodash-es";

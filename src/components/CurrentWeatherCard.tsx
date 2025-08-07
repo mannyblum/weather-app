@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import { useDayOrNight } from "../hooks/useDayOrNight";
 import type { CurrentWeatherResponse } from "../types/Weather";
 import { css } from "@emotion/react";
@@ -129,7 +131,7 @@ export default function CurrentWeatherCard({
           <span css={temp}>{Math.round(weather.main.temp)}&deg;f</span>
           <span css={description}>
             {weather.weather[0].description.replace(/\b\w/g, (c) =>
-              c.toUpperCase(),
+              c.toUpperCase()
             )}
           </span>
         </div>

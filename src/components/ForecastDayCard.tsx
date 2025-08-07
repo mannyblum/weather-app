@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import { useDayOrNight } from "../hooks/useDayOrNight";
 import type { ForecastDay } from "../types/Weather";
 

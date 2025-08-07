@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import { useWeather } from "../context/WeatherContext";
 import { useAutocompleteSuggestions } from "../hooks/use-autocomplete-suggestions";
 import type {
@@ -132,7 +134,7 @@ export default function PlacesSearchInput({
     acsValue ?? "",
     {
       includedPrimaryTypes: ["locality", "administrative_area_level_1"],
-    },
+    }
   );
 
   const handleSearch = useMemo(() => {
@@ -148,7 +150,7 @@ export default function PlacesSearchInput({
       setInputValue(searchValue);
       handleSearch(searchValue);
     },
-    [],
+    []
   );
 
   const handleSuggestionClick = useCallback(
@@ -176,7 +178,7 @@ export default function PlacesSearchInput({
 
       onPlaceSelect(pl);
     },
-    [places],
+    [places]
   );
 
   const handleClearInput = useCallback(() => {

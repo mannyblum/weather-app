@@ -24,6 +24,7 @@ I queried some generative AI and asked it to provide me with checklist to achiev
   - [x] Wind speed
 
 - [ ] API Integration
+
   - [x] Use a weather API (e.g. OpenWeatherMap)
   - [x] Handle loading state
   - [ ] Handle error state (e.g. "City not found")
@@ -31,16 +32,18 @@ I queried some generative AI and asked it to provide me with checklist to achiev
 ⚙️ 2. State & Data Management
 
 - [ ] Store:
+
   - [x] Search query
   - [x] Weather data response
   - [ ] Loading/error states
+
 - [x] Use React's useState, useEffect
 - [x] Optional: useContext or useReducer for more complex data flows
 
 🎨 3. UI/UX
 
 - [ ] Responsive design (mobile-first layout)
-- [ ] Clean and modern UI
+- [x] Clean and modern UI
 - [x] Weather icons match condition (e.g. sun, rain, snow)
 - [ ] Dynamic background or styling based on weather (optional)
 - [ ] Temperature toggle (°C / °F)
